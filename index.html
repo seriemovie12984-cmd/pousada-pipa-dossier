@@ -1,0 +1,615 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<!-- Realized for: Eric Gavalda Fernandez -->
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pousada em Pipa — Dossiê Premium de Investimento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08111f;
+  --bg2:#0d1a2d;
+  --bg3:#12233e;
+  --card:rgba(255,255,255,.055);
+  --card-2:rgba(255,255,255,.035);
+  --line:rgba(255,255,255,.12);
+  --line-soft:rgba(255,255,255,.07);
+  --text:#f6f8fb;
+  --muted:#a7b4c8;
+  --soft:#d8e2ee;
+  --gold:#e8b830;
+  --green:#34d399;
+  --blue:#60a5fa;
+  --danger:#f87171;
+  --shadow:0 20px 60px rgba(0,0,0,.35);
+  --radius:24px;
+  --radius-sm:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  color:var(--text);
+  line-height:1.55;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(232,184,48,.13), transparent 26%),
+    radial-gradient(circle at 85% 25%, rgba(96,165,250,.08), transparent 22%),
+    linear-gradient(180deg,var(--bg) 0%, var(--bg2) 45%, var(--bg3) 100%);
+  background-attachment:fixed;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.glass{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow);
+}
+.section{padding:48px 0}
+.section-inner{padding:34px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:9px 16px;border-radius:999px;
+  color:var(--gold);font-size:12px;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;
+  border:1px solid rgba(232,184,48,.22);
+  background:rgba(232,184,48,.08);
+  margin-bottom:16px;
+}
+.eyebrow::before{
+  content:'';width:8px;height:8px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 16px rgba(232,184,48,.4);
+}
+h1,h2,h3{letter-spacing:-.03em}
+h1{font-size:clamp(2.8rem,5.6vw,5.2rem);line-height:.96;font-weight:900}
+h2{font-size:clamp(1.8rem,3.6vw,2.8rem);font-weight:850;margin-bottom:10px}
+h3{font-size:1.05rem;font-weight:750}
+.subtitle,.lead,.muted{color:var(--muted)}
+.lead{font-size:1.05rem}
+.counter{text-align:right;color:#74839b;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-top:18px}
+.nav{
+  position:fixed;right:18px;top:50%;transform:translateY(-50%);
+  z-index:50;display:flex;flex-direction:column;gap:8px;
+}
+.nav a{
+  width:12px;height:12px;border-radius:999px;background:rgba(255,255,255,.18);
+  border:2px solid transparent;transition:.25s ease;
+}
+.nav a.active,.nav a:hover{background:var(--gold);border-color:var(--gold);box-shadow:0 0 12px rgba(232,184,48,.35)}
+.hero{padding:34px 0 24px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .95fr;gap:24px;align-items:stretch}
+.hero-copy,.hero-media{padding:34px}
+.hero-copy{position:relative;overflow:hidden}
+.hero-copy::after{
+  content:'';position:absolute;right:-80px;top:-80px;width:250px;height:250px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,184,48,.18),transparent 65%);
+}
+.hero-topline{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:700}
+.hero h1 span{color:var(--gold)}
+.hero-price{
+  display:inline-block;margin:24px 0 8px;padding:16px 28px;border-radius:18px;
+  background:linear-gradient(135deg,var(--gold),#d9980e);color:#241500;font-weight:900;
+  font-size:clamp(1.8rem,4vw,2.9rem);box-shadow:0 18px 38px rgba(232,184,48,.25);
+}
+.hero-price-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin:24px 0 8px}
+.hero-market-price{
+  color:rgba(246,248,251,.72);font-size:1rem;font-weight:700;letter-spacing:.04em;
+}
+.hero-market-price s{color:#ffd7d7;text-decoration-thickness:3px;text-decoration-color:rgba(248,113,113,.9)}
+.hero-note{color:#f6d58a;font-size:.95rem;font-weight:600}
+.hero-address{margin:18px 0 24px;color:var(--soft);font-size:1rem}
+.hero-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.kpi{padding:16px 14px;border-radius:18px;background:var(--card-2);border:1px solid var(--line-soft);text-align:center}
+.kpi strong{display:block;font-size:1.45rem;font-weight:900}
+.kpi span{display:block;margin-top:4px;font-size:.74rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.hero-alert{margin-top:20px;padding:14px 16px;border-radius:16px;background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.18);color:#fbc1c1}
+.hero-media{display:flex;flex-direction:column;gap:14px}
+.hero-photo{overflow:hidden;border-radius:22px;border:1px solid var(--line)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;min-height:320px;max-height:380px}
+.hero-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.hero-strip .thumb{border-radius:16px;overflow:hidden;border:1px solid var(--line);height:180px}
+.hero-strip img{width:100%;height:100%;object-fit:cover}
+.two-col{display:grid;grid-template-columns:1.02fr .98fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{padding:22px;border-radius:20px;background:var(--card-2);border:1px solid var(--line-soft)}
+.card p{color:var(--soft)}
+.badge-value{display:inline-flex;padding:8px 14px;border-radius:999px;font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+.badge-gold{background:rgba(232,184,48,.1);color:var(--gold);border:1px solid rgba(232,184,48,.2)}
+.badge-green{background:rgba(52,211,153,.1);color:var(--green);border:1px solid rgba(52,211,153,.2)}
+.badge-blue{background:rgba(96,165,250,.1);color:var(--blue);border:1px solid rgba(96,165,250,.2)}
+.facts{display:grid;gap:14px}
+.fact{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:18px;border-radius:18px;background:var(--card-2);border:1px solid var(--line-soft)}
+.fact .ico{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(232,184,48,.1);font-size:1.2rem}
+.fact .label{font-weight:750}
+.fact .desc{color:var(--muted);font-size:.9rem}
+.fact .value{font-weight:900;color:var(--gold);text-align:right}
+.mosaic{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:12px}
+.mosaic .big{grid-row:span 2;height:420px}
+.mosaic .photo,.gallery .photo,.house-grid .photo,.renders .photo{position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--line)}
+.mosaic .photo img,.gallery .photo img,.house-grid .photo img,.renders .photo img{width:100%;height:100%;object-fit:cover}
+.mosaic .small{height:204px}
+.caption{position:absolute;left:0;right:0;bottom:0;padding:12px 14px;background:linear-gradient(transparent,rgba(0,0,0,.72));font-size:.82rem;color:#eff4fb}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery .photo{height:210px}
+.value-band{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+.value-pill{padding:20px 18px;border-radius:20px;text-align:center;background:var(--card-2);border:1px solid var(--line-soft)}
+.value-pill strong{display:block;font-size:1.5rem;font-weight:900}
+.value-pill span{display:block;margin-top:6px;font-size:.82rem;color:var(--muted)}
+.value-pill.primary{background:linear-gradient(135deg,rgba(232,184,48,.12),rgba(232,184,48,.05));border-color:rgba(232,184,48,.22)}
+.value-pill.primary strong{color:var(--gold)}
+.value-pill.success{background:linear-gradient(135deg,rgba(52,211,153,.12),rgba(52,211,153,.04));border-color:rgba(52,211,153,.22)}
+.value-pill.success strong{color:var(--green)}
+.house-layout{display:grid;grid-template-columns:1fr .92fr;gap:18px;align-items:start}
+.plan-box{overflow:hidden;border-radius:22px;border:1px solid var(--line);background:#fff}
+.plan-box img{width:100%;height:auto}
+.house-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.house-grid .photo{height:220px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.feature{padding:16px;border-radius:16px;background:var(--card-2);border:1px solid var(--line-soft)}
+.feature strong{display:block;font-size:.98rem;margin-bottom:5px}
+.feature span{color:var(--muted);font-size:.88rem}
+.renders{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.renders .photo{height:240px;background:rgba(255,255,255,.04);padding:10px}
+.renders .photo img{object-fit:contain;background:#0f1827;border-radius:12px}
+.upgrade-points{display:grid;gap:12px;margin-top:18px}
+.upgrade{padding:18px;border-radius:18px;background:var(--card-2);border:1px solid var(--line-soft)}
+.upgrade strong{display:block;margin-bottom:6px}
+.ops{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ops .stat{padding:18px;border-radius:18px;background:var(--card-2);border:1px solid var(--line-soft);text-align:center}
+.ops .stat strong{display:block;font-size:1.4rem}
+.ops .stat span{display:block;color:var(--muted);font-size:.82rem;margin-top:6px}
+.calc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
+.season{padding:24px;border-radius:22px;background:var(--card-2);border:1px solid var(--line-soft)}
+.season header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.season ul{list-style:none;display:grid;gap:10px}
+.season li{display:flex;justify-content:space-between;gap:14px;padding-bottom:10px;border-bottom:1px solid var(--line-soft);color:var(--soft)}
+.season li:last-child{border-bottom:0;padding-bottom:0}
+.season .total{margin-top:16px;padding:16px;border-radius:16px;background:rgba(232,184,48,.08);border:1px solid rgba(232,184,48,.16)}
+.season .total strong{font-size:1.55rem;color:var(--gold)}
+.charts{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:start}
+.mini-bars,.mini-donuts{padding:22px;border-radius:22px;background:var(--card-2);border:1px solid var(--line-soft)}
+.bar-stack{display:grid;gap:14px}
+.bar-row{display:grid;grid-template-columns:130px 1fr auto;gap:12px;align-items:center}
+.bar-track{height:10px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:999px}
+.bar-fill.low{width:34.7%;background:linear-gradient(90deg,#3b82f6,#60a5fa)}
+.bar-fill.high{width:58.5%;background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.bar-fill.total{width:100%;background:linear-gradient(90deg,#10b981,#34d399)}
+.bar-label{font-size:.86rem;color:var(--soft)}
+.bar-value{font-size:.86rem;font-weight:800;color:var(--text)}
+.donut-wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.donut-card{padding:14px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--line-soft);text-align:center}
+.donut{width:112px;height:112px;border-radius:50%;margin:0 auto 10px;position:relative;background:conic-gradient(var(--gold) 0 58.5%, rgba(255,255,255,.08) 58.5% 100%)}
+.donut.secondary{background:conic-gradient(var(--blue) 0 41.5%, rgba(255,255,255,.08) 41.5% 100%)}
+.donut::after{content:'';position:absolute;inset:18px;border-radius:50%;background:linear-gradient(180deg,var(--bg2),var(--bg3))}
+.donut-card strong{display:block;font-size:1.2rem}
+.donut-card span{color:var(--muted);font-size:.84rem}
+.revenue-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;margin-top:18px}
+.breakdown{display:grid;gap:12px}
+.line-item{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:18px;border-radius:18px;background:var(--card-2);border:1px solid var(--line-soft)}
+.dot{width:14px;height:14px;border-radius:50%}
+.dot.low{background:var(--blue)}
+.dot.high{background:var(--gold)}
+.dot.total{background:var(--green)}
+.line-item strong{font-size:1.15rem}
+.line-item span{color:var(--muted);font-size:.86rem}
+.summary-box{padding:22px;border-radius:22px;background:linear-gradient(135deg,rgba(232,184,48,.08),rgba(52,211,153,.05));border:1px solid rgba(232,184,48,.16)}
+.summary-box .big{font-size:2.3rem;font-weight:900;color:var(--gold)}
+.summary-box .mini{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.summary-box .mini div{padding:14px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--line-soft);text-align:center}
+.summary-box .mini strong{display:block;font-size:1.1rem}
+.summary-box .mini span{font-size:.8rem;color:var(--muted)}
+.roi-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:18px}
+.roi-card{padding:22px;border-radius:20px;background:var(--card-2);border:1px solid var(--line-soft);text-align:center}
+.roi-card.featured{background:linear-gradient(135deg,rgba(232,184,48,.12),rgba(232,184,48,.05));border-color:rgba(232,184,48,.22)}
+.roi-card strong{display:block;font-size:2rem;font-weight:900;margin:8px 0;color:var(--gold)}
+.roi-card p{color:var(--muted);font-size:.88rem}
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.reason{padding:22px;border-radius:20px;background:var(--card-2);border:1px solid var(--line-soft)}
+.reason h3{margin:10px 0 8px}
+.reason p{color:var(--soft);font-size:.92rem}
+.closing{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:start}
+.contact-card{padding:28px}
+.contact-name{font-size:1.35rem;font-weight:850}
+.contact-role{color:var(--muted);margin:4px 0 20px}
+.contact-list{display:grid;gap:12px}
+.contact-row{padding:16px 18px;border-radius:18px;background:var(--card-2);border:1px solid var(--line-soft)}
+.contact-row strong{display:block;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.contact-row span{color:var(--soft);font-size:.97rem}
+.closing-panel{padding:28px}
+.closing-panel .price{font-size:2.5rem;font-weight:900;color:var(--gold);margin:10px 0 2px}
+.closing-panel .tiny{color:var(--muted);font-size:.92rem}
+.cta-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.cta-kpis div{padding:16px;border-radius:18px;background:var(--card-2);border:1px solid var(--line-soft);text-align:center}
+.cta-kpis strong{display:block;font-size:1.18rem}
+.cta-kpis span{display:block;color:var(--muted);font-size:.78rem;margin-top:4px}
+.footer{padding:20px 0 36px;text-align:center;color:#7f90a8;font-size:.82rem}
+@media (max-width:980px){
+  .nav{display:none}
+  .hero-grid,.two-col,.house-layout,.charts,.revenue-grid,.closing{grid-template-columns:1fr}
+  .grid-4,.grid-3,.ops,.roi-grid,.reasons,.features,.donut-wrap{grid-template-columns:1fr 1fr}
+  .hero-kpis{grid-template-columns:1fr 1fr}
+  .calc-grid,.gallery,.renders,.value-band{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:1fr 1fr}
+  .mosaic .big{grid-column:1/-1;height:320px}
+  .mosaic .small{height:180px}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .section{padding:34px 0}
+  .section-inner,.hero-copy,.hero-media,.contact-card,.closing-panel{padding:22px}
+  .grid-4,.grid-3,.ops,.roi-grid,.reasons,.features,.gallery,.renders,.cta-kpis,.value-band,.donut-wrap{grid-template-columns:1fr}
+  .hero-strip{grid-template-columns:1fr 1fr 1fr}
+  .hero-photo img{min-height:300px}
+  .bar-row{grid-template-columns:1fr;gap:8px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="#s1" title="Portada"></a>
+  <a href="#s2" title="Localização"></a>
+  <a href="#s3" title="Ativo"></a>
+  <a href="#s4" title="Galeria"></a>
+  <a href="#s5" title="Residência"></a>
+  <a href="#s6" title="Reforma"></a>
+  <a href="#s7" title="Operação"></a>
+  <a href="#s8" title="Gráficos"></a>
+  <a href="#s9" title="Faturamento"></a>
+  <a href="#s10" title="ROI"></a>
+  <a href="#s11" title="Fecho"></a>
+</nav>
+<section id="s1" class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy glass">
+        <div class="eyebrow">Venda exclusiva</div>
+        <div class="hero-topline">Dossiê premium de investimento imobiliário</div>
+        <h1>Uma pousada de grande porte no <span>coração de Pipa</span></h1>
+        <p class="lead" style="margin-top:18px">Apresentamos uma oportunidade extraordinária para investidores exigentes: um ativo turístico já em operação, situado em uma das ruas principais de Pipa, Tibau do Sul, com forte potencial de rentabilidade a curto e longo prazo.</p>
+        <p class="hero-address">Rua das Pedrinhas 53, Tibau do Sul, Pipa · 5 minutos a pé da praia · centro comercial e vida turística ao redor</p>
+        <div class="hero-price-wrap">
+          <div class="hero-market-price">Preço de mercado: <s>R$ 4.000.000</s></div>
+          <div class="hero-price">Preço de venda · R$ 3.000.000</div>
+        </div>
+        <div class="hero-note">Preço final ajustado conforme solicitado · valor de mercado estimado em R$ 4.000.000</div>
+
+        <div class="hero-alert"><strong>Venda motivada por urgência dos proprietários</strong> — o desconto frente ao valor de mercado cria uma janela de entrada rara em uma das localizações mais disputadas de Pipa.</div>
+        <div class="counter">01 / 11</div>
+      </div>
+      <div class="hero-media glass">
+        <div class="hero-photo">
+          <img src="img/34363130.jpg" alt="Vista principal da pousada" loading="lazy">
+        </div>
+        <div class="hero-strip">
+          <div class="thumb"><img src="img/174922698.jpg" alt="Piscina da pousada" loading="lazy"></div>
+          <div class="thumb"><img src="img/34363160.jpg" alt="Área externa da pousada" loading="lazy"></div>
+          <div class="thumb"><img src="img/174922718.jpg" alt="Vista noturna da pousada" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="s2" class="section">
+  <div class="wrap">
+    <div class="glass section-inner">
+      <div class="eyebrow">Localização estratégica</div>
+      <div class="two-col">
+        <div>
+          <h2>Centro de Pipa, visibilidade forte e demanda turística contínua</h2>
+          <p class="lead">A propriedade está posicionada em uma das ruas principais de Pipa, com excelente acesso para turistas nacionais e internacionais. A combinação entre praia, bares, restaurantes, comércio e fluxo turístico permanente reforça o valor do ativo.</p>
+          <p class="lead" style="margin-top:14px">Pipa consolidou-se como um dos destinos mais importantes do nordeste brasileiro. O crescimento da demanda elevou o valor das propriedades na região, e as projeções indicam que esta área tende a ganhar ainda mais centralidade nos próximos anos.</p>
+          <div class="value-band">
+            <div class="value-pill primary"><strong>R$ 4.000.000</strong><span>valor de mercado estimado</span></div>
+            <div class="value-pill success"><strong>R$ 1.000.000</strong><span>desconto face ao mercado</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="photo" style="height:360px;margin-bottom:14px;overflow:hidden;border-radius:22px;border:1px solid var(--line)">
+            <img src="img/34363160.jpg" alt="Imagem principal da pousada na segunda seção" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+            <div class="caption">Imagem principal da pousada nesta página</div>
+          </div>
+          <div class="facts">
+            <div class="fact"><div class="ico">📍</div><div><div class="label">Rua principal de Pipa</div><div class="desc">Excelente visibilidade e acesso</div></div><div class="value">Premium</div></div>
+            <div class="fact"><div class="ico">🏖️</div><div><div class="label">Praia a 5 minutos</div><div class="desc">Uma das praias mais belas da região</div></div><div class="value">5 min</div></div>
+            <div class="fact"><div class="ico">📈</div><div><div class="label">Potencial de valorização</div><div class="desc">Área em pleno crescimento urbano e turístico</div></div><div class="value">Alto</div></div>
+            <div class="fact"><div class="ico">🌍</div><div><div class="label">Público nacional e internacional</div><div class="desc">Demanda diversificada ao longo do ano</div></div><div class="value">Global</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="counter">02 / 11</div>
+    </div>
+  </div>
+</section>
+<section id="s3" class="section">
+  <div class="wrap">
+    <div class="glass section-inner">
+      <div class="eyebrow">Resumo do ativo</div>
+      <div class="two-col">
+        <div>
+          <h2>Um negócio consolidado, com operação real e margem para reposicionamento</h2>
+          <p class="lead">A pousada possui 20 quartos, piscina, áreas de relaxamento e estrutura para atendimento de perfis distintos de hóspedes. A experiência atual já é atraente, e o projeto de reforma amplia significativamente o potencial de tarifa, ocupação e valorização patrimonial.</p>
+          <p class="lead" style="margin-top:12px">Além da operação hoteleira, o conjunto inclui uma residência privada recém-reformada de 150 m², o que transforma a aquisição num pacote de investimento e estilo de vida pouco comum em Pipa.</p>
+        </div>
+        <div class="facts">
+          <div class="fact"><div class="ico">🛏️</div><div><div class="label">Capacidade de acomodação</div><div class="desc">Quartos para diferentes perfis de hóspedes</div></div><div class="value">20</div></div>
+          <div class="fact"><div class="ico">🏊</div><div><div class="label">Áreas comuns</div><div class="desc">Piscina e espaços de relaxamento</div></div><div class="value">Ativo</div></div>
+          <div class="fact"><div class="ico">🏠</div><div><div class="label">Residência privada</div><div class="desc">Casa independente dentro da mesma propriedade</div></div><div class="value">150 m²</div></div>
+          <div class="fact"><div class="ico">💼</div><div><div class="label">Operação pronta</div><div class="desc">Receita desde o primeiro dia</div></div><div class="value">Imediata</div></div>
+        </div>
+      </div>
+      <div class="counter">03 / 11</div>
+    </div>
+  </div>
+</section>
+<section id="s4" class="section">
+  <div class="wrap">
+    <div class="glass section-inner">
+      <div class="eyebrow">Imagens atuais</div>
+      <h2>Estado atual da propriedade</h2>
+      <p class="subtitle">Registo fotográfico atual da propriedade, apresentando os espaços, áreas comuns e infraestrutura disponível para o investidor.</p>
+      <div class="mosaic" style="margin-top:20px">
+        <div class="photo big"><img src="img/371781587.jpg" alt="Vista ampla da piscina e blocos de quartos" loading="lazy"><div class="caption">Piscina e distribuição visual dos blocos principais</div></div>
+        <div class="photo small"><img src="img/34363130.jpg" alt="Piscina e fachada interna" loading="lazy"><div class="caption">Área central com paisagismo</div></div>
+        <div class="photo small"><img src="img/174922969.jpg" alt="Vista da varanda para piscina" loading="lazy"><div class="caption">Atmosfera de descanso</div></div>
+        <div class="photo small"><img src="img/371780981.jpg" alt="Vista noturna da pousada" loading="lazy"><div class="caption">Percepção noturna do ativo</div></div>
+        <div class="photo small"><img src="img/174923576.jpg" alt="Restaurante e convivência" loading="lazy"><div class="caption">Convivência e restauração</div></div>
+      </div>
+      <div class="gallery" style="margin-top:14px">
+        <div class="photo"><img src="img/174922718.jpg" alt="Vista geral da piscina" loading="lazy"><div class="caption">Vista geral da piscina</div></div>
+        <div class="photo"><img src="img/174922698.jpg" alt="Piscina 2" loading="lazy"><div class="caption">Piscina e fachada da receção</div></div>
+        <div class="photo"><img src="img/34363160.jpg" alt="Vista interna" loading="lazy"><div class="caption">Zona coberta e área externa</div></div>
+        <div class="photo"><img src="img/371781523.jpg" alt="Pátio interno" loading="lazy"><div class="caption">Pátio central com vegetação tropical</div></div>
+        <div class="photo"><img src="img/371781587.jpg" alt="Fachada com piscina" loading="lazy"><div class="caption">Fachada com piscina</div></div>
+        <div class="photo"><img src="img/174922969.jpg" alt="Escala visual do conjunto" loading="lazy"><div class="caption">Escala visual do conjunto</div></div>
+      </div>
+      <div class="counter">04 / 11</div>
+    </div>
+  </div>
+</section>
+<section id="s5" class="section">
+  <div class="wrap">
+    <div class="glass section-inner">
+      <div class="eyebrow">Residência privada</div>
+      <h2>Um segundo ativo de valor dentro da mesma compra</h2>
+      <p class="lead">A operação inclui uma residência privada de 150 m² recém-reformada, pensada para proprietário ou gestor que deseje viver no local com padrão superior. O imóvel combina materiais de primeira qualidade, linguagem contemporânea e acabamentos de luxo.</p>
+      <div class="house-layout" style="margin-top:22px">
+        <div>
+          <div class="plan-box">
+            <img src="img/planos.jpg" alt="Planta da residência privada de 150 metros quadrados" loading="lazy">
+          </div>
+          <div class="features">
+            <div class="feature"><strong>23,75% do valor total</strong><span>Participação estimada da residência no pacote global</span></div>
+            <div class="feature"><strong>2 suítes</strong><span>Programa residencial de uso privado</span></div>
+            <div class="feature"><strong>Vida + negócio</strong><span>Investimento e residência no mesmo endereço</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="house-grid">
+            <div class="photo"><img src="img/WhatsApp%20Image%202026-03-25%20a.jpeg" alt="Sala ampla da residência" loading="lazy"><div class="caption">Espaço social com pé-direito e luminosidade</div></div>
+            <div class="photo"><img src="img/WhatsApp%20Image%202026-03-25%20at%2001.1.jpeg" alt="Ambiente da residência" loading="lazy"><div class="caption">Ambiente interno reformado</div></div>
+            <div class="photo"><img src="img/WhatsApp%20Image%202026-03-25%20at%2001.12..jpeg" alt="Banheiro da residência" loading="lazy"><div class="caption">Acabamentos e revestimentos</div></div>
+            <div class="photo"><img src="img/WhatsApp%20Image%202026-03-25%20at%2001.12.49.jpeg" alt="Quarto da residência" loading="lazy"><div class="caption">Quarto com infraestrutura instalada</div></div>
+          </div>
+          <div class="card" style="margin-top:12px">
+            <span class="badge-value badge-gold">Valor estimado da residência</span>
+            <h3 style="margin-top:10px;font-size:1.7rem;color:var(--gold)">R$ 712.500</h3>
+            <p style="margin-top:8px">Não se trata apenas da compra de uma pousada. O investidor passa a deter também uma residência privada com valor patrimonial próprio, extremamente rara no mercado imobiliário de Pipa.</p>
+          </div>
+        </div>
+      </div>
+      <div class="counter">05 / 11</div>
+    </div>
+  </div>
+</section>
+<section id="s6" class="section">
+  <div class="wrap">
+    <div class="glass section-inner">
+      <div class="eyebrow">Projeto de reforma</div>
+      <h2>Potencial claro de reposicionamento premium</h2>
+      <p class="lead">Atualmente, a pousada necessita de algumas melhorias estruturais e estéticas para maximizar seu apelo e competitividade no mercado. O que apresentamos aqui não é o estado atual dos quartos: é um projeto de reforma já criado para mostrar como eles poderiam ficar se fossem modernizados para captar um público com maior potencial de gasto e gerar um aumento no potencial de benefícios da operação.</p>
+      <p class="lead" style="margin-top:12px">Estas imagens são referenciais do projeto desenvolvido para permitir ao investidor visualizar o potencial futuro da propriedade. A proposta foi concebida para responder melhor às exigências do mercado moderno, elevar os padrões de qualidade e conforto, aumentar a ocupação, reforçar a fidelização dos clientes e posicionar a pousada num nível capaz de sustentar uma rentabilidade superior a curto e longo prazo.</p>
+      <div class="renders" style="margin-top:22px">
+        <div class="photo"><img src="img/IMG-20230824-WA0014.jpg" alt="Render de ambiente reformado 1" loading="lazy"><div class="caption">Linguagem visual mais limpa e contemporânea</div></div>
+        <div class="photo"><img src="img/IMG-20230824-WA0017.jpg" alt="Render de ambiente reformado 2" loading="lazy"><div class="caption">Quarto redesenhado para categoria superior</div></div>
+        <div class="photo"><img src="img/IMG-20230824-WA0018.jpg" alt="Render de ambiente reformado 3" loading="lazy"><div class="caption">Maior valor percebido pelo hóspede</div></div>
+        <div class="photo"><img src="img/IMG-20230824-WA0019.jpg" alt="Render de ambiente reformado 4" loading="lazy"><div class="caption">Melhor experiência e fidelização</div></div>
+        <div class="photo" style="display:flex;align-items:center;justify-content:center;overflow:hidden;background:#0f1827">
+          <img src="img/IMG-20230824-WA0021%20copia.jpg" alt="Plano de quartos reformados" loading="lazy" style="transform:rotate(-90deg);height:240px;width:auto;object-fit:contain;border-radius:8px">
+          <div class="caption" style="font-size:.75rem">Estudo de layout para unidades futuras</div>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:18px">
+        <div class="card">
+          <span class="badge-value badge-blue">Investimento estimado por quarto</span>
+          <h3 style="margin-top:10px;font-size:2rem;color:var(--gold)">R$ 15.000 a R$ 20.000</h3>
+          <p style="margin-top:8px">Faixa aproximada de investimento por unidade para executar a remodelação e elevar o padrão de qualidade, conforto e apresentação comercial dos quartos.</p>
+          <p style="margin-top:10px">Se esta reforma for executada, o potencial de faturamento apresentado nas seções e gráficos seguintes passa a fazer sentido como cenário comercial projetado, pois os números refletem precisamente uma pousada reposicionada, mais competitiva e mais atrativa para captar melhor clientela.</p>
+        </div>
+        <div class="upgrade-points">
+          <div class="upgrade"><strong>Pintura, acabamento e revisão estética</strong><span class="muted">Melhora imediata na percepção de valor do ativo e aproxima o produto de um padrão mais premium.</span></div>
+          <div class="upgrade"><strong>Mobiliário, ambientação e linguagem visual</strong><span class="muted">Reposicionamento para uma clientela com maior capacidade de gasto e mais exigente em conforto e imagem.</span></div>
+          <div class="upgrade"><strong>Banhos, climatização e atualização funcional</strong><span class="muted">Aumento de conforto, competitividade, ocupação potencial e capacidade de fidelização do hóspede.</span></div>
+        </div>
+      </div>
+      <div class="hero-alert" style="margin-top:16px"><strong>Importante:</strong> os dados de faturamento, retorno e gráficos apresentados a seguir devem ser lidos como o cenário projetado para a pousada após a execução desta melhoria visual e funcional.</div>
+      <div class="counter">06 / 11</div>
+    </div>
+  </div>
+</section>
+<section id="s7" class="section">
+  <div class="wrap">
+    <div class="glass section-inner">
+      <div class="eyebrow">Parâmetros operacionais</div>
+      <h2>Base conservadora para leitura da receita</h2>
+      <p class="subtitle">Estimativa construída a partir de tarifas praticadas na região, usando dados de referência do Booking e leitura de ocupação histórica dos últimos anos, aplicada ao cenário em que a reforma proposta é executada para maximizar o potencial comercial do ativo.</p>
+      <div class="ops" style="margin-top:20px">
+        <div class="stat"><strong>20</strong><span>quartos</span></div>
+        <div class="stat"><strong>R$ 250</strong><span>tarifa baixa</span></div>
+        <div class="stat"><strong>R$ 450</strong><span>tarifa alta</span></div>
+        <div class="stat"><strong>365 dias</strong><span>operação anual</span></div>
+      </div>
+      <div class="calc-grid">
+        <div class="season">
+          <header><h3>Temporada baixa</h3><span class="badge-value badge-blue">50% ocupação</span></header>
+          <ul>
+            <li><span>Dias de operação</span><strong>245</strong></li>
+            <li><span>Quartos ocupados por dia</span><strong>10</strong></li>
+            <li><span>Tarifa média</span><strong>R$ 250</strong></li>
+            <li><span>Receita diária</span><strong>R$ 2.500</strong></li>
+          </ul>
+          <div class="total"><strong>R$ 612.500</strong><div class="muted" style="margin-top:4px">Receita total da temporada baixa</div></div>
+        </div>
+        <div class="season">
+          <header><h3>Temporada alta</h3><span class="badge-value badge-gold">80% ocupação</span></header>
+          <ul>
+            <li><span>Dias de operação</span><strong>120</strong></li>
+            <li><span>Quartos ocupados por dia</span><strong>16</strong></li>
+            <li><span>Tarifa média</span><strong>R$ 450</strong></li>
+            <li><span>Receita diária</span><strong>R$ 7.200</strong></li>
+          </ul>
+          <div class="total"><strong>R$ 864.000</strong><div class="muted" style="margin-top:4px">Receita total da temporada alta</div></div>
+        </div>
+      </div>
+      <div class="counter">07 / 11</div>
+    </div>
+  </div>
+</section>
+<section id="s8" class="section">
+  <div class="wrap">
+    <div class="glass section-inner">
+      <div class="eyebrow">Gráficos executivos</div>
+      <h2>Leitura visual compacta e profissional</h2>
+      <p class="subtitle">Os gráficos abaixo foram reduzidos para um formato mais discreto, pensado para um dossiê comercial e não para uma apresentação pesada.</p>
+      <div class="charts" style="margin-top:20px">
+        <div class="mini-bars">
+          <h3 style="margin-bottom:14px">Comparativo de receitas</h3>
+          <div class="bar-stack">
+            <div class="bar-row"><div class="bar-label">Diária baixa</div><div class="bar-track"><div class="bar-fill low"></div></div><div class="bar-value">R$ 2.500</div></div>
+            <div class="bar-row"><div class="bar-label">Diária alta</div><div class="bar-track"><div class="bar-fill high" style="width:100%"></div></div><div class="bar-value">R$ 7.200</div></div>
+            <div class="bar-row"><div class="bar-label">Receita baixa</div><div class="bar-track"><div class="bar-fill low"></div></div><div class="bar-value">R$ 612.500</div></div>
+            <div class="bar-row"><div class="bar-label">Receita alta</div><div class="bar-track"><div class="bar-fill high"></div></div><div class="bar-value">R$ 864.000</div></div>
+            <div class="bar-row"><div class="bar-label">Faturamento anual</div><div class="bar-track"><div class="bar-fill total"></div></div><div class="bar-value">R$ 1.476.500</div></div>
+          </div>
+        </div>
+        <div class="mini-donuts">
+          <h3 style="margin-bottom:14px">Distribuição percentual</h3>
+          <div class="donut-wrap">
+            <div class="donut-card"><div class="donut"></div><strong>58,5%</strong><span>participação da alta temporada</span></div>
+            <div class="donut-card"><div class="donut secondary"></div><strong>41,5%</strong><span>participação da baixa temporada</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="counter">08 / 11</div>
+    </div>
+  </div>
+</section>
+<section id="s9" class="section">
+  <div class="wrap">
+    <div class="glass section-inner">
+      <div class="eyebrow">Faturamento anual</div>
+      <h2>Receita combinada e leitura mensal</h2>
+      <div class="revenue-grid">
+        <div class="breakdown">
+          <div class="line-item"><div class="dot low"></div><div><strong>Temporada baixa</strong><span>245 dias · 50% ocupação · R$ 250/noite</span></div><div><strong>R$ 612.500</strong></div></div>
+          <div class="line-item"><div class="dot high"></div><div><strong>Temporada alta</strong><span>120 dias · 80% ocupação · R$ 450/noite</span></div><div><strong>R$ 864.000</strong></div></div>
+          <div class="line-item"><div class="dot total"></div><div><strong>Total anual estimado</strong><span>Soma das duas curvas de receita</span></div><div><strong style="color:var(--green)">R$ 1.476.500</strong></div></div>
+        </div>
+        <div class="summary-box">
+          <div class="muted" style="text-transform:uppercase;letter-spacing:.12em;font-size:.78rem">faturamento bruto anual</div>
+          <div class="big">R$ 1.476.500</div>
+          <p style="margin-top:8px;color:var(--soft)">Leitura conservadora, sem incluir receitas adicionais de restaurante, eventos, upsell ou serviços complementares.</p>
+          <div class="mini">
+            <div><strong>R$ 123.041,67</strong><span>média mensal</span></div>
+            <div><strong>R$ 4.045,21</strong><span>média diária</span></div>
+          </div>
+          <p style="margin-top:14px;color:var(--muted);font-size:.84rem">Base metodológica: dados de preços por quarto na região, Booking como referência de mercado e projeção assistida por IA com histórico de ocupação dos últimos 5 anos.</p>
+        </div>
+      </div>
+      <div class="hero-alert" style="margin-top:18px"><strong>Aviso importante:</strong> Os valores apresentados nesta seção são estimativas aproximadas, geradas com base em dados públicos de tarifas e ocupação da plataforma Booking.com, projetados com o auxílio de inteligência artificial. Estes números não constituem uma garantia de rendimento e devem ser interpretados exclusivamente como uma referência orientativa para análise do potencial do ativo. Recomenda-se ao investidor realizar a sua própria diligência antes de tomar qualquer decisão.</div>
+      <div class="counter">09 / 11</div>
+    </div>
+  </div>
+</section>
+<section id="s10" class="section">
+  <div class="wrap">
+    <div class="glass section-inner">
+      <div class="eyebrow">Retorno do investimento</div>
+      <h2>Payback muito acima da média do mercado comercial</h2>
+      <p class="lead">Mesmo com uma análise conservadora, a pousada apresenta um ciclo de retorno particularmente curto. Isso reforça o racional da compra a R$ 3.000.000 e também evidencia quanto o desconto de entrada melhora a atratividade da operação.</p>
+      <div class="roi-grid">
+        <div class="roi-card featured"><div class="muted" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.12em">Preço de venda</div><strong>2,03 anos</strong><p>R$ 3.000.000 ÷ R$ 1.476.500</p></div>
+        <div class="roi-card"><div class="muted" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.12em">Com reforma</div><strong>2,24 anos</strong><p>R$ 3.300.000 ÷ R$ 1.476.500</p></div>
+        <div class="roi-card"><div class="muted" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.12em">Ao valor de mercado</div><strong>2,71 anos</strong><p>R$ 4.000.000 ÷ R$ 1.476.500</p></div>
+      </div>
+      <div class="card" style="margin-top:16px"><p>Como referência, o mercado imobiliário comercial brasileiro costuma trabalhar com paybacks muito mais longos. Aqui, o desconto de entrada e a combinação entre operação hoteleira, residência privada e potencial de reforma criam uma equação particularmente eficiente.</p></div>
+      <div class="counter">10 / 11</div>
+    </div>
+  </div>
+</section>
+<section id="s11" class="section">
+  <div class="wrap">
+    <div class="glass section-inner">
+      <div class="eyebrow">Fecho comercial</div>
+      <div class="reasons">
+        <div class="reason"><div class="badge-value badge-gold">01</div><h3>Entrada abaixo do mercado</h3><p>Preço ajustado para R$ 3.000.000, mesmo com valor de mercado estimado em R$ 4.000.000, reforçando a atratividade da entrada.</p></div>
+        <div class="reason"><div class="badge-value badge-green">02</div><h3>Pacote duplo de valor</h3><p>Negócio hoteleiro já operando e residência privada de 150 m² dentro da mesma compra.</p></div>
+        <div class="reason"><div class="badge-value badge-blue">03</div><h3>Potencial de expansão de margem</h3><p>Com a reforma, a propriedade pode migrar para um posicionamento superior, com maior valor percebido.</p></div>
+      </div>
+      <div class="closing" style="margin-top:18px">
+        <div class="contact-card card">
+          <div class="contact-name">Alexis Gavaldá Fernández</div>
+          <div class="contact-role">Diretor da pousada</div>
+          <div class="contact-list">
+            <div class="contact-row"><strong>Localização</strong><span>Rua das Pedrinhas 53, Tibau do Sul, Pipa — RN, Brasil</span></div>
+            <div class="contact-row"><strong>Posicionamento do ativo</strong><span>Pousada em funcionamento com residência privada e projeto de reforma pronto para valorização.</span></div>
+            <div class="contact-row"><strong>Fecho comercial</strong><span>Disponível para consulta e coordenação de visita à propriedade.</span></div>
+          </div>
+        </div>
+        <div class="closing-panel card">
+          <div class="muted" style="text-transform:uppercase;letter-spacing:.12em;font-size:.8rem">preço final de venda</div>
+          <div class="price">R$ 3.000.000</div>
+          <div class="tiny">Valor ajustado conforme solicitado · negociação associada à urgência de venda</div>
+          <div class="cta-kpis">
+            <div><strong>R$ 1,476 M</strong><span>receita anual</span></div>
+            <div><strong>2,03 anos</strong><span>payback venda</span></div>
+            <div><strong>R$ 712.500</strong><span>valor da casa</span></div>
+          </div>
+          <div class="hero-alert" style="margin-top:18px"><strong>Conclusão:</strong> ativo raro em Pipa pela soma de localização, operação existente, desconto de entrada, residência privada e potencial de reforma.</div>
+        </div>
+      </div>
+      <div class="counter">11 / 11</div>
+    </div>
+  </div>
+</section>
+<div class="footer">
+  <div class="wrap">Pousada em Pipa · Dossiê premium de investimento · Documento visual reconstruído com texto real da proposta e imagens separadas</div>
+</div>
+<script>
+(function(){
+  var links=document.querySelectorAll('.nav a');
+  var items=[];
+  links.forEach(function(link){
+    var el=document.querySelector(link.getAttribute('href'));
+    if(el) items.push({link:link,el:el});
+  });
+  function update(){
+    var marker=window.scrollY + window.innerHeight * 0.35;
+    var active=null;
+    items.forEach(function(item){ if(item.el.offsetTop<=marker) active=item; });
+    links.forEach(function(link){ link.classList.remove('active'); });
+    if(active) active.link.classList.add('active');
+  }
+  window.addEventListener('scroll', update, { passive:true });
+  update();
+})();
+</script>
+</body>
+</html>
